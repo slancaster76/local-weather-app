@@ -20,5 +20,6 @@
 	"editor.codeActionsOnSave": {
 		"source.organizeImports": true
 	},
-	"npm.enableScriptExplorer": true
+	"npm.enableScriptExplorer": true,
+	"workbench.sideBar.location": "right"
 }
