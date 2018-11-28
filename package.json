@@ -2,20 +2,12 @@
   "name": "localcast-weather",
   "version": "1.0.0",
   "scripts": {
-    "standardize": "prettier **/*.ts --write",
     "ng": "ng",
-    "start": "npm run standardize && ng serve --port 5000 -o",
-    "build": "npm run standardize && ng build",
+    "start": "ng serve --port 5000 -o",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
-  },
-  "prettier": {
-    "printWidth": 90,
-    "semi": true,
-    "singleQote": true,
-    "trailingComma": "es5",
-    "parser": "typescript"
   },
   "private": true,
   "dependencies": {
