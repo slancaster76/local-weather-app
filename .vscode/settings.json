@@ -2,7 +2,7 @@
 	"editor.tabSize": 2,
 	"editor.rulers": [90, 140],
 	"files.trimTrailingWhitespace": true,
-	"files.autoSave": "onFocusChange",
+	"files.autoSave": "off",
 	"editor.cursorBlinking": "solid",
 	"workbench.iconTheme": "material-icon-theme",
 	"git.enableSmartCommit": true,
