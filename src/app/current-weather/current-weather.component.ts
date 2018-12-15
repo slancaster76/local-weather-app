@@ -12,7 +12,8 @@ export class CurrentWeatherComponent implements OnInit {
 
   // Constructor.
   constructor() {
-    // Temp code.
+    // Temp code to populate dummy data as a JSON object conforming to our
+    // ICurrentWeather interface.
     this.current = {
       city: 'Bethesda',
       country: 'US',
