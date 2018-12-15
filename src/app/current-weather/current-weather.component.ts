@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core'
-import { ICurrentWeather } from '../interfaces'
+import { Component, OnInit } from '@angular/core';
+import { ICurrentWeather } from '../interfaces';
 
 @Component({
   selector: 'app-current-weather',
@@ -8,7 +8,7 @@ import { ICurrentWeather } from '../interfaces'
 })
 export class CurrentWeatherComponent implements OnInit {
   // Public properties.
-  current: ICurrentWeather
+  current: ICurrentWeather;
 
   // Constructor.
   constructor() {
@@ -20,7 +20,7 @@ export class CurrentWeatherComponent implements OnInit {
       image: 'assets/img/sunny.svg',
       temperature: 72,
       description: 'sunny',
-    } as ICurrentWeather
+    } as ICurrentWeather;
   }
 
   ngOnInit() {}

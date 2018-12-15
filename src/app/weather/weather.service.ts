@@ -1,21 +1,21 @@
-import { HttpClient } from '@angular/common/http'
-import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
 interface ICurrentWeatherData {
   weather: [
     {
-      description: string
-      icon: string
+      description: string;
+      icon: string;
     }
-  ]
+  ];
   main: {
-    temp: number
-  }
+    temp: number;
+  };
   sys: {
-    country: string
-  }
-  dt: number
-  name: string
+    country: string;
+  };
+  dt: number;
+  name: string;
 }
 
 @Injectable({
