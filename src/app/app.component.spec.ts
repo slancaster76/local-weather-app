@@ -1,4 +1,5 @@
 import { async, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
@@ -8,14 +9,9 @@ import { WeatherServiceFake } from './weather/weather.service.fake';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, FormsModule],
       declarations: [AppComponent, CurrentWeatherComponent],
-      providers: [
-        {
-          provide: WeatherService,
-          useClass: WeatherServiceFake,
-        },
-      ],
+      providers: [{ provide: WeatherService, useClass: WeatherServiceFake }],
     }).compileComponents();
   }));
 
