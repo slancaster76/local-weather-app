@@ -4,19 +4,19 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <div>
-      <mat-toolbar color="primary"> <span>LocalCast Weather</span> </mat-toolbar>
+      <mat-toolbar color="primary"><span>LocalCast Weather</span></mat-toolbar>
       <div fxLayoutAlign="center">
-        <div class="mat-caption">
+        <div class="mat-caption vertical-margin">
           Your city, your forecast, right now!
         </div>
       </div>
       <div fxLayout="row">
         <div fxFlex></div>
-        <div fxFlex="300px">
+        <div fxFlex="400px">
           <mat-card>
             <mat-card-header>
               <mat-card-title>
-                <div class="mat-title">Current Weather</div>
+                <div class="mat-headline">Current Weather</div>
               </mat-card-title>
             </mat-card-header>
             <mat-card-content>
