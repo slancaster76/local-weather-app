@@ -27,22 +27,58 @@ interface ICurrentWeatherData {
 // Interface that must be implemented by all implementations of our weather
 // service.
 export interface IWeatherService {
-  getCurrentWeather(city: string, country: string): Observable<ICurrentWeather>;
+  getCurrentWeather(
+    search: string | number,
+    country?: string
+  ): Observable<ICurrentWeather>;
+  getCurrentWeatherByCoords(coords: Coordinates): Observable<ICurrentWeather>;
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class WeatherService implements IWeatherService {
+  // Constructor.
   constructor(private httpClient: HttpClient) {}
 
-  getCurrentWeather(city: string, country: string): Observable<ICurrentWeather> {
+  getCurrentWeather(
+    search: string | number,
+    country?: string
+  ): Observable<ICurrentWeather> {
+    // Local members.
+    let uriParams = '';
+
+    // Construct the query parameters dependent upon the type of the passed-in
+    // search parameter.
+    if (typeof search === 'string') {
+      uriParams = `q=${search}`;
+    } else {
+      uriParams = `zip=${search}`;
+    }
+
+    if (country) {
+      uriParams = `${uriParams},${country}`;
+    }
+
+    // Get the requested weather.
+    return this.getCurrentWeatherHelper(uriParams);
+  }
+
+  getCurrentWeatherByCoords(coords: Coordinates): Observable<ICurrentWeather> {
+    // Local members.
+    const uriParams = `lat=${coords.latitude}&log=${coords.longitude}`;
+
+    // Get the requested weather.
+    return this.getCurrentWeatherHelper(uriParams);
+  }
+
+  private getCurrentWeatherHelper(uriParams: string): Observable<ICurrentWeather> {
     // Get the requested current weather, transforming the emitted stream to the
     // shape of our ICurrentWeather interface.
     return this.httpClient
       .get<ICurrentWeatherData>(
         `${environment.baseUrl}api.openweathermap.org/data/2.5/weather?` +
-          `q=${city},${country}&appid=${environment.appId}`
+          `${uriParams}&appid=${environment.appId}`
       )
       .pipe(map(data => this.transformToICurrentWeather(data)));
   }
