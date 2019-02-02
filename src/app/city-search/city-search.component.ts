@@ -21,12 +21,15 @@ export class CitySearchComponent implements OnInit {
       if (!this.search.invalid) {
         // Split the input value.
         const userInput = searchValue.split(',').map(s => s.trim());
+
+        // Get the current weather for the entered search value and publish it
+        // to weather service's currentWeather behavior subject.
         this.weatherService
           .getCurrentWeather(
             userInput[0],
             userInput.length > 1 ? userInput[1] : undefined
           )
-          .subscribe(data => console.log(data));
+          .subscribe(data => this.weatherService.currentWeather.next(data));
       }
     });
   }

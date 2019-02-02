@@ -10,7 +10,10 @@ import { Component } from '@angular/core';
           Your city, your forecast, right now!
         </div>
       </div>
-      <div fxLayoutAlign="center"><app-city-search></app-city-search></div>
+      <div fxLayoutAlign="center">
+        <!-- Search component -->
+        <app-city-search></app-city-search>
+      </div>
       <div fxLayout="row">
         <div fxFlex></div>
         <div fxFlex="400px">
@@ -21,6 +24,7 @@ import { Component } from '@angular/core';
               </mat-card-title>
             </mat-card-header>
             <mat-card-content>
+              <!-- Current weather component (search results) -->
               <app-current-weather></app-current-weather>
             </mat-card-content>
           </mat-card>
