@@ -1,8 +1,8 @@
 import { async, TestBed } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { CitySearchComponent } from './city-search/city-search.component';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
 import { MaterialModule } from './material/material.module';
 import { WeatherService } from './weather/weather.service';
@@ -11,9 +11,9 @@ import { WeatherServiceFake } from './weather/weather.service.fake';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, FormsModule, MaterialModule, NoopAnimationsModule],
-      declarations: [AppComponent, CurrentWeatherComponent],
+      declarations: [AppComponent, CurrentWeatherComponent, CitySearchComponent],
       providers: [{ provide: WeatherService, useClass: WeatherServiceFake }],
+      imports: [FormsModule, ReactiveFormsModule, MaterialModule, NoopAnimationsModule],
     }).compileComponents();
   }));
 
